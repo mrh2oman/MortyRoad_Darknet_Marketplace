@@ -69,6 +69,7 @@ function purchase() {
 
         } else {
           console.log("Not enough units available. What are you, some kind of Jerry?".bgWhite.red);
+          console.log("Let's try this again, and pay attention to the quantity this time!!!!".bgBlack.magenta);
           setTimeout(purchase, 3000);
          }
       });
