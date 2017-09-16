@@ -1,0 +1,19 @@
+{
+  "name": "mortyroad",
+  "version": "1.0.0",
+  "description": "an amazon like storefront using mysql and node",
+  "main": "mortyroadCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrh2oman/MortyRoad_Bamazon.git"
+  },
+  "author": "David Waterman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrh2oman/MortyRoad_Bamazon/"
+  },
+  "homepage": "https://github.com/mrh2oman/MortyRoad_Bamazon#readme"
+}
