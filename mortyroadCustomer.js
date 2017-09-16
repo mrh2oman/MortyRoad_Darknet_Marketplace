@@ -40,7 +40,6 @@ function purchase() {
       }
 
     ]).then (function (po){
-      console.log(JSON.stringify(po, null, 2));
       var quantity = po.quantity;
       var id = po.id;
       connection.query('SELECT * FROM products WHERE item_id=' + id, function(err, pickedItem){
@@ -68,9 +67,8 @@ function purchase() {
           });
 
         } else {
-          console.log("Not enough units available. What are you, some kind of Jerry?");
-          purchase();
-        }
+          console.log("Not enough units available. What are you, some kind of Jerry?".bgWhite.red);
+          setTimeout(purchase, 3000);        }
       });
     });
   });
