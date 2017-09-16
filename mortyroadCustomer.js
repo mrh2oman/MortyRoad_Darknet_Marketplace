@@ -13,10 +13,10 @@ var connection = mysql.createConnection({
 connection.connect(function(err) {
   if (err) throw err;
   // console.log("connected as id " + connection.threadId);
-  console.log("<-------------------------------------------------------------------------------------->");
-  console.log("<-------------------------------------------------------------------------------------->");
+  console.log("<-------------------------------------------------------------------------------------->".yellow);
+  console.log("<-------------------------------------------------------------------------------------->".blue);
   console.log("Welcome to MortyRoad your interdimensional underground online shopping store!".bgWhite.blue);
-  console.log("<-------------------------------------------------------------------------------------->");
+  console.log("<-------------------------------------------------------------------------------------->".yellow);
 });
 
 
@@ -51,24 +51,26 @@ function purchase() {
           connection.query('UPDATE products SET stock_quantity=? WHERE item_id=?', [pickedItem[0].stock_quantity - quantity, id],
           function(err, items) {
             if (err) throw err;
-            console.log("<-------------------------------------------------------------------------------------->");
-            console.log("<-------------------------------------------------------------------------------------->");
+            console.log("<-------------------------------------------------------------------------------------->".grey);
+            console.log("<-------------------------------------------------------------------------------------->".grey);
             console.log("Congrats on your purchase of our amazing " + pickedItem[0].product_name.red + " product!");
-            console.log("<-------------------------------------------------------------------------------------->");
-            console.log("<-------------------------------------------------------------------------------------->");
+            console.log("<-------------------------------------------------------------------------------------->".grey);
+            console.log("<-------------------------------------------------------------------------------------->".grey);
             console.log("Your order will take 48 hours to process. Please feel free to continue to use MortyRoad.".green);
-            console.log("<-------------------------------------------------------------------------------------->");
-            console.log("<-------------------------------------------------------------------------------------->");
+            console.log("<-------------------------------------------------------------------------------------->".grey);
+            console.log("<-------------------------------------------------------------------------------------->".grey);
             console.log("Your one stop shop for all the illegal things from all the timelines and universes imaginable.".green);
-            console.log("<-------------------------------------------------------------------------------------->");
-            console.log("<-------------------------------------------------------------------------------------->");
+            console.log("<-------------------------------------------------------------------------------------->".grey);
+            console.log("<-------------------------------------------------------------------------------------->".grey);
+            console.log("And now, back to shopping..................");
 
             setTimeout(purchase, 5000);
           });
 
         } else {
           console.log("Not enough units available. What are you, some kind of Jerry?".bgWhite.red);
-          setTimeout(purchase, 3000);        }
+          setTimeout(purchase, 3000);
+         }
       });
     });
   });
