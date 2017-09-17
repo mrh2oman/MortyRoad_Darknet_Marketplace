@@ -60,10 +60,25 @@ function mortyManager() {
 function viewProducts() {
   connection.query('SELECT * FROM products', function(err, items){
     if (err) throw err;
-    // console.log("hello");
     for(var i = 0; i<items.length; i++){
       console.log(items[i].item_id + "  ||  ".red+items[i].product_name+"  ||  ".red+items[i].department_name+"  ||  ".red+items[i].price+"  ||  ".red+items[i].stock_quantity+"  ||  ".red);
     }
       setTimeout(mortyManager,5000);
   });
 }
+
+function viewLowInventory() {
+  connection.query('SELECT * FROM products', function(err, items){
+    if (err) throw err;
+    for(var i = 0; i<items.length; i++){
+      if (items[i].stock_quantity < 5000) {
+        console.log(items[i].item_id + "  ||  ".red+items[i].product_name+"  ||  ".red+items[i].department_name+"  ||  ".red+items[i].price+"  ||  ".red+items[i].stock_quantity+"  ||  ".red);
+      } else {
+        console.log(items[i].item_id + "  ||  ".red+items[i].product_name+ " is at an acceptable level".blue)
+      }
+    }
+      setTimeout(mortyManager,10000);
+  });
+}
+
+// console.log("Inventory for " + items[i].item_id + "  ||  ".red + items[i].product_name+"  ||  ".red " is good man");
