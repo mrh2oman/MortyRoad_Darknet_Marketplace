@@ -10,15 +10,6 @@ var connection = mysql.createConnection({
   database: "mortyroadDB"
 });
 
-// connection.connect(function(err) {
-//   if (err) throw err;
-//   // console.log("connected as id " + connection.threadId);
-//   console.log("<-------------------------------------------------------------------------------------->".yellow);
-//   console.log("<-------------------------------------------------------------------------------------->".blue);
-//   console.log("Welcome to MortyRoad your interdimensional underground online shopping store!".bgWhite.blue);
-//   console.log("<-------------------------------------------------------------------------------------->".yellow);
-// });
-
 mortyManager();
 
 
@@ -50,7 +41,7 @@ function mortyManager() {
           break;
 
         case "Add New Product".green:
-          songSearch();
+          addProduct();
           break;
 
       }
@@ -109,7 +100,7 @@ function addInventory() {
           function(err, items) {
             if (err) throw err;
 
-            console.log("Inventory " + pickedItem[0].name + " has been increased by " + quantity);
+            console.log("Inventory " + pickedItem[0].product_name + " has been increased by " + quantity);
 
             setTimeout(mortyManager, 3000);
           });
@@ -123,4 +114,57 @@ function addInventory() {
     });
   });
 }
-// console.log("Inventory for " + items[i].item_id + "  ||  ".red + items[i].product_name+"  ||  ".red " is good man");
+
+function addProduct() {
+  inquirer
+    .prompt([
+      {
+        name: "name",
+        type: "input",
+        message: "What item that you stole would you like to add to inventory?"
+      },
+      {
+        name: "category",
+        type: "input",
+        message: "What category would you like to place this item in?"
+      },
+      {
+        name: "price",
+        type: "input",
+        message: "What would you like the price to be for this item?",
+        validate: function(value) {
+          if (isNaN(value) === false) {
+            return true;
+          }
+          return false;
+        }
+      },
+        {
+          name: "quantity",
+          type: "input",
+          message: "How many of these items do you want to put in inventory?",
+          validate: function(value) {
+            if (isNaN(value) === false) {
+              return true;
+            }
+            return false;
+          }
+      }
+    ])
+    .then(function(answer) {
+      connection.query(
+        "INSERT INTO products SET ?",
+        {
+          product_name: answer.name,
+          department_name: answer.category,
+          price: answer.price,
+          stock_quantity: answer.quantity
+        },
+        function(err) {
+          if (err) throw err;
+          console.log("Your item was created successfully! Run the 'View Products for Sale' to see it in inventory!");
+          setTimeout(mortyManager, 3000);
+        }
+      );
+    });
+}
