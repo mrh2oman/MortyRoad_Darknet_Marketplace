@@ -9,8 +9,8 @@
     Purchase products from the MortyRoad inventory
 
  1. Managers can: 
-   ⋅⋅* View all the products for sale
-   ⋅⋅* View what items have a low inventory
+   * View all the products for sale
+   * View what items have a low inventory
 
 ![Alt text](/images/ViewInvLowInv.png "View Products and View Items with Low Inventory")
 
