@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/mrh2oman/MortyRoad_Bamazon/"
   },
-  "homepage": "https://github.com/mrh2oman/MortyRoad_Bamazon#readme"
+  "homepage": "https://github.com/mrh2oman/MortyRoad_Bamazon#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "inquirer": "^3.3.0",
+    "mysql": "^2.15.0"
+  }
 }
