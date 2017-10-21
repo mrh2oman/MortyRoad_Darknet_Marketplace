@@ -11,11 +11,12 @@
  1. Managers can: 
    * View all the products for sale
    * View what items have a low inventory
-
 ![Alt text](/images/ViewInvLowInv.png "View Products and View Items with Low Inventory")
 
-    Add to existing inventory levels
-    Create a new product with an inventory level
+   * Add to existing inventory levels
+   * Create a new product with an inventory level
+   ![Alt text](/images/IncInvAddItem.png "View Products and View Items with Low Inventory")
+
 
 #Setup
 
